@@ -1,0 +1,13 @@
+#application {
+	background-color: #CCC;
+	width: 320px;
+	height: 240px;
+}
+
+#header {
+	height: 18px;
+}
+
+#header p {
+	margin: 0px 0px 0px 3px;
+}

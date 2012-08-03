@@ -1,0 +1,211 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>JavaScript - Testing</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="css/preso.css" type="text/css">
+	</head>
+	
+	<body>
+		
+		<div class="reveal">
+
+			<!-- Used to fade in a background when a specific slide state is reached -->
+			<div class="state-background"></div>
+			
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>JavaScript Testing</h1>
+					<h3 class="inverted">The quick and dirty version (15 min)</h3>
+					<script>
+						// Delicously hacky. Look away.
+						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) ) document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+					</script>
+				</section>
+				
+				<section>
+					<h2>No it isn't just Unit Testing</h2>
+					<ul>
+						<li>Functional Testing</li>
+						<li>Integration Testing</li>
+						<li>Behavior Driven Development (BDD)</li>
+						<li>Test Driven Development (TDD)</li>
+						<li>and yes, of course...Unit Testing</li>
+					</ul>
+				</section>
+				
+				<!-- Example of nested vertical slides -->
+				<section>
+					<section>
+						<h2>Tools</h2>
+						<ul>
+							<li>Jasmine</li>
+							<li>QUnit</li>
+							<li>FuncUnit</li>
+						</ul>
+						<img id="jasmine-logo" class="image" src="images/jasmine.png" />
+						<img id="qunit-logo" class="image" src="images/qunit.png" />
+						<img id="funcunit-logo" class="image" src="images/funcunit.png" />
+					</section>
+					<section>
+						<h2>Jasmine</h2>
+						<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">describe('The test suite', function() {
+    it('Should do the right thing', function(){
+      expect(spikeLee === 'do the right thing.').toBe(true);
+    });
+
+    it('Should do some math', function(){
+      expect(2+2).toBe(4);
+    });
+  }
+});
+						</code></pre>
+						<ul>
+							<li>Behavior-driven framework for testing JavaScript code.</li>
+							<li>No other JavaScript dependencies.</li>
+							<li>Very natural syntax/api.</li>
+							<li>Built by <a href="http://pivotallabs.com/">Pivotal Labs</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>QUnit</h2>
+						<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">test("hello test", function() {
+  ok(1 == "1", "Passed!");
+});
+						</code></pre>
+						<ul>
+							<li>Used to be part of jQuery.</li>
+							<li>QUnit was pulled out into its own tool.</li>
+							<li>Used to test used to test the jQuery library but isn't limited to jQuery code.</li>
+							<li>Simple &amp; easy to use.</li>
+						</ul>
+					</section>
+					<section>
+						<h2>FuncUnit</h2>
+						<pre><code contenteditable style="font-size: 18px; margin-top: 20px;">module('ABA Login View', {
+    setup: function() {
+      S.open('http://aba.realeyes.com/test/#!/login');
+    }
+  }
+});
+test('Login View', function() {
+  expect(3);
+  ok(S('#username_txt').exists(), 'username_txt control should exist.');
+  ok(S('#password_txt').exists(), 'username_txt control should exist.');
+  ok(S('#submit_btn').exists(), 'username_txt control should exist.');
+});
+test('Login', function() {
+  S('#username_txt').click().type('[shift]A[shift-up]0604283');
+  S('#password_txt').click().type('test');
+  S('#submit_btn span.ui-btn-text').click();
+  ok(S('.centeredContainer').visible());
+});
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h2>Resources</h2>
+					<p>FuncUnit<br/>
+					<a href="http://funcunit.com/">http://funcunit.com/</a>
+					</p>
+					<p>QUnit<br/>
+					<a href="http://qunitjs.com/">http://qunitjs.com/</a></p>
+					<p>Jasmine<br/>
+					<a href="http://pivotal.github.com/jasmine/">http://pivotal.github.com/jasmine/</a></p>
+				</section>
+
+				<section>
+					<h1>The End</h1>
+					<h2>Happy Testing</h2>
+					<h3 class="inverted"><a href="http://about.me/jccrosby">John Crosby</a> / <a href="http://thekuroko.com">thekuroko.com</a> / <a href="http://twitter.com/jccrosby">@jccrosby</a></h3>
+				</section>
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Presentation progress bar -->
+			<!-- <div class="progress"><span></span></div> -->
+			
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+
+		<script>
+			// Scripts that should be loaded before initializing
+			var scripts = [];
+
+			// If the browser doesn't support classList, load a polyfill
+			if( !document.body.classList ) {
+				scripts.push( 'lib/js/classList.js' );
+			}
+
+			// Load markdown parser if there are slides defined using markdown
+			if( document.querySelector( '[data-markdown]' ) ) {
+				scripts.push( 'lib/js/showdown.js' );
+				scripts.push( 'lib/js/data-markdown.js' );
+			}
+
+			// If we're runnning the notes server we need to include some additional JS
+			// TODO Is there a better way to determine if we're running the notes server?
+			if( window.location.host === 'localhost:1947' ) {
+				scripts.push( 'socket.io/socket.io.js' );
+				scripts.push( 'plugin/speakernotes/client.js' );
+			}
+
+			scripts.push( 'js/reveal.js' );
+
+			// Load the scripts and, when completed, initialize reveal.js
+			head.js.apply( null, scripts.concat([function() {
+
+				// Fires when a slide with data-state=customevent is activated
+				Reveal.addEventListener( 'customevent', function() {
+					console.log( '"customevent" has fired' );
+				} );
+
+				// Fires each time a new slide is activated
+				Reveal.addEventListener( 'slidechanged', function( event ) {
+					// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+				} );
+
+				// Full list of configuration options available here:
+				// https://github.com/hakimel/reveal.js#configuration
+				Reveal.initialize({
+					controls: true,
+					progress: true,
+					history: true,
+					
+					theme: Reveal.getQueryHash().theme || 'default', // default/neon/beige
+					transition: Reveal.getQueryHash().transition || 'default' // default/cube/page/concave/linear(2d)
+				});
+
+			}]));
+			
+			// Load highlight.js for syntax highlighting of code samples
+			head.js( 'lib/js/highlight.js', function() { 
+				hljs.initHighlightingOnLoad(); 
+			} );
+		</script>
+
+	</body>
+</html>
