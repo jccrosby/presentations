@@ -1,0 +1,25 @@
+#jasmine-logo {
+	background-color: #ccc;
+	position: absolute;
+	left: 10px;
+	bottom: 40px;
+}
+
+#qunit-logo {
+	position: absolute;
+	right: 340px;
+	bottom: 40px;
+}
+
+#funcunit-logo {
+	background-color: #FFF;
+	position: absolute;
+	right: 10px;
+	bottom: 40px;
+}
+
+/*.inverted span {
+	font-size: 69px;
+	font-weight: bolder;
+	text-decoration: underline;
+}*/

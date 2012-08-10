@@ -11,8 +11,8 @@ require(
 	[
 		'jquery',
 		// Specs
-		//'../../jasmine/spec/AppModelSpec',
-		'../../jasmine/spec/EnemySpec'
+		'../../jasmine/spec/AppModelSpec',
+		//'../../jasmine/spec/EnemySpec'
 	],
 
 	function($, appModel) {

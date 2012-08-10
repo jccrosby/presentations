@@ -1,5 +1,6 @@
 var express = require('express');
-var app = express.createServer();
+var http = require('http');
+var app = express();
 
 app.configure(function () {
 	app.use(express.methodOverride());
@@ -13,7 +14,9 @@ app.configure(function () {
 });
 
 app.get('/', function (req, res) {
-	res.redirect('/app/index.html');
+	//res.redirect('/app/index.html');
 });
 
-app.listen(4000);
+var server = http.createServer(app);
+
+server.listen(4000);

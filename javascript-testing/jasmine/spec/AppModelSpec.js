@@ -32,7 +32,7 @@ define(
 			it('Should have a method, addEnemy that add to the enemies array', function() {
 				expect(appModel.enemies.length).toBe(0);
 				appModel.addEnemy(enemy1);
-				expect(appModel.enemies.length).toBe(1);
+				expect(appModel.enemies.length).toBe(3);
 				appModel.addEnemy(enemy2);
 				expect(appModel.enemies.length).toBe(2);
 				appModel.addEnemy(enemy3);

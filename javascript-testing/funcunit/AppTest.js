@@ -1,7 +1,7 @@
 module('MyAwesomeApp', {
 	setup: function() {
 		// opens the page you want to test
-		S.open('http://localhost:3000/app/index.html');
+		S.open('http://localhost:4000/app/index.html');
 	}
 })
 
