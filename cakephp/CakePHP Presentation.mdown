@@ -1,0 +1,55 @@
+# CakePHP Presentation
+
+## What is cake? 
+* A well defined base for a PHP application
+
+## Why cake?
+* Don't have to worry about boiler-plate code (Database, Authentication, & Authorization)
+* Speed & flexibility
+* Support - well maintained and large-ish community 
+
+## The basics 
+* Similar to Ruby on Rails, CFWheels and other request/response based frameworks
+** Routes, Controllers, Views, Models, and helpers (http://book.cakephp.org/2.0/en/getting-started/a-typical-cakephp-request.html)
+** Convention over configuration
+
+### Configuration
+** Database
+** Plug-ins 
+** Security 
+
+### Database & Models
+* CamelCased and singular 
+** Usually Models represent a database table (but they don't HAVE to)
+** Database tables names correspond to lower-case underscored names 
+** Model name: PlayerSetting - Database Table Name: player_settings
+* Manages everything having to do with your data
+** They can be associated with other models  
+*** One-to-one (hasOne)
+*** One-to-many (hasMany)
+*** Many-to-one (belongsTo)
+*** Many-to-many (hasAndBelongsToMany)
+
+### Controllers
+* CamelCased and plural 
+** sample -> samples
+** person -> people
+* Methods map to the "route"
+** http://localhost/app/sample (maps to default index method in the SampelsController controller)
+** http://localhost/app/sample/doSomething (maps to the doSomething method in the SamplesController controller)
+
+### View
+* The files are:
+** Named after the method in the controller in underscore form
+** Use the .ctp file extension
+** Are stored in a sub-direcetory of the view directory that matches the controller name.
+Example: For the doSomethingNeat() method in the PlayerSettingsController you would find the view template in /app/Views/PlayerSettings/do_something_neat.ctp
+
+Getting started
+* The database
+* cake bake
+** $ cake bake /Users/jccrosby/Documents/projects/presentations/cakephp/code/shots/app
+* Controller
+* Model
+* View
+* Scaffolding
